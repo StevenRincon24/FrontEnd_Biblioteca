@@ -34,10 +34,7 @@ class Login extends React.Component {
     axios
       .post(url, this.state.form)
       .then((response) => {
-        console.log(response.data);
-        console.log(response.data.message);
-
-        if (response.data.message.toLowerCase() === "user finded ") {
+        if (response.data.message === "User finded ") {
           localStorage.setItem("rol", response.data.rol);
           localStorage.setItem("username", this.state.form.username);
           if (response.data.rol === "admin") {
@@ -51,11 +48,7 @@ class Login extends React.Component {
             error: true,
             errorMsg: "User OK",
           });
-        } else if (
-          response.data.message.toLowerCase() ===
-          "Error, user is not registered"
-        ) {
-          console.log("No Encontrado");
+        } else if (response.data.error === "Error, user is not registered") {
           this.setState({
             error: true,
             errorMsg: "Invalid user or role",
@@ -63,10 +56,9 @@ class Login extends React.Component {
         }
       })
       .catch((error) => {
-        console.log(error);
         this.setState({
           error: true,
-          errorMsg: "Error al conectar al API",
+          errorMsg: "Invalid user or role.",
         });
       });
   };

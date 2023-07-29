@@ -40,7 +40,6 @@ class ListEmployee extends React.Component {
         return [...acc, ...loans];
       }, []);
 
-      console.log(allLoans);
 
       this.setState({ data: allLoans });
     });
@@ -58,7 +57,6 @@ class ListEmployee extends React.Component {
   sendData = (username, id) => {
     let url =
       ApiUrl + "dashBoard/loansManagement/changeStatus/" + username + "/" + id;
-    console.log(url);
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -67,18 +65,14 @@ class ListEmployee extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        console.log(data.message);
 
         if (data.message === "Loan status updated successfully") {
-          console.log(data.message);
           this.setState({
             error: true,
             errorMsg: "Loan status updated successfully",
           });
           this.getLoans();
         } else if (data.error === "Error updating loan status") {
-          console.log("Error");
           this.setState({
             error: true,
             errorMsg: "Error updating loan status",
@@ -86,7 +80,6 @@ class ListEmployee extends React.Component {
         }
       })
       .catch((error) => {
-        console.log(error);
         this.setState({
           error: true,
           errorMsg: "Error",

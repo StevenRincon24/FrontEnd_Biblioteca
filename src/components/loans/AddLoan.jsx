@@ -34,7 +34,6 @@ class AddCustomer extends React.Component {
       username: this.state.form.customer,
       ISBN: this.state.form.book,
     };
-    console.log(JSON.stringify(requestData, null, 2) + " data");
     const url = ApiUrl + "dashboard/registerLoan/register";
     fetch(url, {
       method: "POST",
@@ -45,9 +44,6 @@ class AddCustomer extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        console.log(data.message);
-
         if (data.message === "Loan register successfully") {
           this.setState({
             error: true,
@@ -57,7 +53,6 @@ class AddCustomer extends React.Component {
             },
           });
         } else {
-          console.log("Error");
           this.setState({
             error: true,
             errorMsg: "Error registering loan",
@@ -65,7 +60,6 @@ class AddCustomer extends React.Component {
         }
       })
       .catch((error) => {
-        console.log(error);
         this.setState({
           error: true,
           errorMsg: "Error",
@@ -96,7 +90,6 @@ class AddCustomer extends React.Component {
   getCustomers = () => {
     let url = ApiUrl + "dashBoard/customersManagement";
     axios.get(url).then((response) => {
-      console.log(response.data.customers);
       this.setState({ dataCustomer: response.data.customers });
     });
   };

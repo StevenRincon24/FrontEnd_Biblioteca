@@ -51,9 +51,6 @@ class AddEmployee extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        console.log(data.message);
-
         if (data.message.toLowerCase() === "employee registered successfully") {
           this.setState({
             error: true,
@@ -71,7 +68,6 @@ class AddEmployee extends React.Component {
             },
           });
         } else if (data.error === "Error registering the employee") {
-          console.log("Error");
           this.setState({
             error: true,
             errorMsg: "Error registering employee",
@@ -79,7 +75,6 @@ class AddEmployee extends React.Component {
         }
       })
       .catch((error) => {
-        console.log(error);
         this.setState({
           error: true,
           errorMsg: "Error",

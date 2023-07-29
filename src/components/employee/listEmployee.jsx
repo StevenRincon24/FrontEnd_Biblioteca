@@ -46,7 +46,6 @@ class ListEmployee extends React.Component {
   getemployees = () => {
     let url = ApiUrl + "dashBoard/EmployeeManagement";
     axios.get(url).then((response) => {
-      console.log(response.data.employees);
       this.setState({ data: response.data.employees });
     });
   };
@@ -88,7 +87,6 @@ class ListEmployee extends React.Component {
   };
   deleteEmployee = (id) => {
     let url = ApiUrl + "dashboard/employeeManagement/delete/" + id;
-    console.log(url);
     axios
       .delete(url)
       .then((response) => {
@@ -101,7 +99,6 @@ class ListEmployee extends React.Component {
         this.getemployees();
       })
       .catch((error) => {
-        console.error("Error deleting employee:", error);
         this.setState({
           error: true,
           errorMsg: "Error deleting employee",
@@ -133,11 +130,8 @@ class ListEmployee extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        console.log(data.message);
-        console.log(requestData);
+
         if (data.message === "Employee updated succesfully") {
-          console.log(data.message);
           this.setState({
             error: true,
             errorMsg: "Employee updated successfully",
@@ -145,7 +139,6 @@ class ListEmployee extends React.Component {
           this.closeModal();
           this.getemployees();
         } else if (data.error === "Error updating Employee") {
-          console.log("Error");
           this.setState({
             error: true,
             errorMsg: "Error updating Employee",
@@ -153,7 +146,6 @@ class ListEmployee extends React.Component {
         }
       })
       .catch((error) => {
-        console.log(error);
         this.setState({
           error: true,
           errorMsg: "Error",

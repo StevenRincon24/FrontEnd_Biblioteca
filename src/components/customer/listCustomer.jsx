@@ -46,7 +46,6 @@ class ListEmployee extends React.Component {
   getemployees = () => {
     let url = ApiUrl + "dashBoard/customersManagement";
     axios.get(url).then((response) => {
-      console.log(response.data.customers);
       this.setState({ data: response.data.customers });
     });
   };
@@ -88,7 +87,6 @@ class ListEmployee extends React.Component {
   };
   deleteEmployee = (id) => {
     let url = ApiUrl + "dashboard/customersManagement/delete/" + id;
-    console.log(url);
     axios
       .delete(url)
       .then((response) => {
@@ -101,7 +99,6 @@ class ListEmployee extends React.Component {
         this.getemployees();
       })
       .catch((error) => {
-        console.error("Error deleting Customer:", error);
         this.setState({
           error: true,
           errorMsg: "Error deleting Customer",
@@ -133,11 +130,9 @@ class ListEmployee extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        console.log(data.message);
+
 
         if (data.message === "Customer updated succesfully") {
-          console.log(data.message);
           this.setState({
             error: true,
             errorMsg: "Customer updated successfully",
@@ -145,7 +140,6 @@ class ListEmployee extends React.Component {
           this.closeModal();
           this.getemployees();
         } else if (data.error === "Error updating customer") {
-          console.log("Error");
           this.setState({
             error: true,
             errorMsg: "Error updating customer",
@@ -153,7 +147,6 @@ class ListEmployee extends React.Component {
         }
       })
       .catch((error) => {
-        console.log(error);
         this.setState({
           error: true,
           errorMsg: "Error",
@@ -363,9 +356,9 @@ class ListEmployee extends React.Component {
                   <Modal show={isModalOpen} onHide={this.closeModal}>
                     <ModalHeader closeButton>Edit Customer</ModalHeader>
                     <ModalBody>
-                      <div class="card">
-                        <div class="card-header">
-                          <h4 class="card-title">Edit Customer</h4>
+                      <div className="card">
+                        <div className="card-header">
+                          <h4 className="card-title">Edit Customer</h4>
                         </div>
                         <div className="card-body">
                           <form>
@@ -519,14 +512,14 @@ class ListEmployee extends React.Component {
                             <div class="modal-footer">
                               <button
                                 type="button"
-                                class="btn btn-secondary"
+                                className="btn btn-secondary"
                                 onClick={this.closeModal}
                               >
                                 Close
                               </button>
                               <button
                                 type="submit"
-                                class="btn btn-primary"
+                                className="btn btn-primary"
                                 onClick={this.sendData}
                               >
                                 Save changes

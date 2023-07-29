@@ -104,11 +104,7 @@ class ListBook extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        console.log(data.message);
-
         if (data.message === "Book updated successfully") {
-          console.log(data.message);
           this.setState({
             error: true,
             errorMsg: "Book updated successfully",
@@ -116,7 +112,6 @@ class ListBook extends React.Component {
           this.closeModal();
           this.getBooks();
         } else if (data.error === "Error updating book") {
-          console.log("Error");
           this.setState({
             error: true,
             errorMsg: "Error updating book",
@@ -124,7 +119,6 @@ class ListBook extends React.Component {
         }
       })
       .catch((error) => {
-        console.log(error);
         this.setState({
           error: true,
           errorMsg: "Error",
@@ -146,9 +140,7 @@ class ListBook extends React.Component {
 
   render() {
     const { data, isModalOpen, form } = this.state;
-
     const rol = localStorage.getItem("rol");
-    console.log(rol === "employee");
 
     return (
       <div>

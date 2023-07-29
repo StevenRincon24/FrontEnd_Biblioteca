@@ -27,8 +27,7 @@ class AddBook extends React.Component {
     axios
       .post(url, this.state.form)
       .then((response) => {
-        console.log(response.data);
-        console.log(response.data.message);
+       
 
         if (
           response.data.message.toLowerCase() === "book registered successfully"
@@ -47,7 +46,7 @@ class AddBook extends React.Component {
             },
           });
         } else {
-          console.log("Error");
+          
           this.setState({
             error: true,
             errorMsg: "Error registering book",
@@ -55,7 +54,7 @@ class AddBook extends React.Component {
         }
       })
       .catch((error) => {
-        console.log(error);
+        
         this.setState({
           error: true,
           errorMsg: "Error",

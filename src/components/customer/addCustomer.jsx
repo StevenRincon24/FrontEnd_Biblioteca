@@ -43,7 +43,7 @@ class AddCustomer extends React.Component {
       },
     };
 
-    console.log(JSON.stringify(requestData, null, 2));
+    
 
     const url = ApiUrl + "dashboard/registerCustomer/register";
 
@@ -56,9 +56,6 @@ class AddCustomer extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        console.log(data.message);
-
         if (data.message.toLowerCase() === "customer registered successfully") {
           this.setState({
             error: true,
@@ -77,7 +74,6 @@ class AddCustomer extends React.Component {
             },
           });
         } else {
-          console.log("Error");
           this.setState({
             error: true,
             errorMsg: "Error registering employee",
@@ -85,7 +81,6 @@ class AddCustomer extends React.Component {
         }
       })
       .catch((error) => {
-        console.log(error);
         this.setState({
           error: true,
           errorMsg: "Error",
