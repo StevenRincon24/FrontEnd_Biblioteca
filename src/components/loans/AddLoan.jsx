@@ -179,6 +179,7 @@ class AddCustomer extends React.Component {
                 <li className="nav-item dropdown">
                   <Dropdown>
                     <Dropdown.Toggle
+                      as={Link}
                       variant="secondary"
                       id="dropdown-basic"
                       className="nav-link dropdown-toggle"

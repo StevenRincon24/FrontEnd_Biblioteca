@@ -135,20 +135,20 @@ class ListEmployee extends React.Component {
       .then((data) => {
         console.log(data);
         console.log(data.message);
-
-        if (data.message === "Book updated succesfully") {
+        console.log(requestData);
+        if (data.message === "Employee updated succesfully") {
           console.log(data.message);
           this.setState({
             error: true,
-            errorMsg: "Book updated successfully",
+            errorMsg: "Employee updated successfully",
           });
           this.closeModal();
           this.getemployees();
-        } else if (data.error === "Error updating book") {
+        } else if (data.error === "Error updating Employee") {
           console.log("Error");
           this.setState({
             error: true,
-            errorMsg: "Error updating book",
+            errorMsg: "Error updating Employee",
           });
         }
       })
@@ -196,6 +196,7 @@ class ListEmployee extends React.Component {
                 <li className="nav-item dropdown">
                   <Dropdown>
                     <Dropdown.Toggle
+                      as={Link}
                       variant="secondary"
                       id="dropdown-employees"
                       className="nav-link dropdown-toggle"
@@ -220,23 +221,21 @@ class ListEmployee extends React.Component {
                 <li className="nav-item dropdown">
                   <Dropdown>
                     <Dropdown.Toggle
+                      as={Link}
                       variant="secondary"
-                      id="dropdown-employees"
+                      id="dropdown-books"
                       className="nav-link dropdown-toggle"
                     >
-                      <i className="fa-solid fa-employee" />
-                      <span>employees </span>
+                      <i className="fa-solid fa-book" />
+                      <span>Books </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <Dropdown.Item
-                        as={Link}
-                        to="/dashBoard/employeeManagement"
-                      >
-                        Employees list
+                      <Dropdown.Item as={Link} to="/dashBoard/bookManagement">
+                        Books list
                       </Dropdown.Item>
                       <Dropdown.Divider />
-                      <Dropdown.Item as={Link} to="/dashBoard/addEmployee">
-                        Add employee
+                      <Dropdown.Item as={Link} to="/dashBoard/createBook">
+                        Add book
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
@@ -352,6 +351,7 @@ class ListEmployee extends React.Component {
                                     name="Name"
                                     defaultValue={form.name}
                                     id="Name"
+                                    onChange={this.manejarChange}
                                   />
                                 </div>
                               </div>
@@ -365,6 +365,7 @@ class ListEmployee extends React.Component {
                                     defaultValue={form.lastName}
                                     id="lastName"
                                     required
+                                    onChange={this.manejarChange}
                                   />
                                 </div>
                               </div>
@@ -378,6 +379,7 @@ class ListEmployee extends React.Component {
                                     id="documentType"
                                     name="documentType"
                                     defaultValue={form.documentType}
+                                    onChange={this.manejarChange}
                                   >
                                     <option value="Citizenship card">
                                       Citizenship card
@@ -399,6 +401,7 @@ class ListEmployee extends React.Component {
                                     name="documentNumber"
                                     required
                                     defaultValue={form.documentNumber}
+                                    onChange={this.manejarChange}
                                   />
                                 </div>
                               </div>
@@ -412,6 +415,7 @@ class ListEmployee extends React.Component {
                                     name="cellphone"
                                     required
                                     defaultValue={form.cellphone}
+                                    onChange={this.manejarChange}
                                   />
                                 </div>
                               </div>
@@ -425,6 +429,7 @@ class ListEmployee extends React.Component {
                                     type="text"
                                     className="form-control"
                                     name="address"
+                                    onChange={this.manejarChange}
                                     defaultValue={form.address}
                                     required
                                   />
@@ -439,6 +444,7 @@ class ListEmployee extends React.Component {
                                     className="form-control"
                                     name="username"
                                     disabled
+                                    onChange={this.manejarChange}
                                     defaultValue={form.username}
                                   />
                                 </div>
@@ -455,6 +461,7 @@ class ListEmployee extends React.Component {
                                     type="text"
                                     className="form-control"
                                     name="id"
+                                    onChange={this.manejarChange}
                                     defaultValue={form.id}
                                   />
                                 </div>
@@ -469,6 +476,7 @@ class ListEmployee extends React.Component {
                                     type="date"
                                     className="form-control"
                                     name="birthday"
+                                    onChange={this.manejarChange}
                                     defaultValue={form.birthday}
                                   />
                                 </div>

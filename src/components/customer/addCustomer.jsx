@@ -265,10 +265,11 @@ class AddCustomer extends React.Component {
                                 <label>Document Type</label>
                                 <select
                                   className="form-select form-control"
-                                  id="documentType"
                                   name="documentType"
                                   required="required"
+                                  onChange={this.manejarChange}
                                 >
+                                  <option value="">---Seleccione---</option>
                                   <option value="Citizenship card">
                                     Citizenship card
                                   </option>

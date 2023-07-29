@@ -422,6 +422,7 @@ class ListBook extends React.Component {
                                     name="ISBN"
                                     id="ISBN1"
                                     readOnly
+                                    onChange={this.manejarChange}
                                     defaultValue={form.ISBN}
                                   />
                                 </div>
@@ -433,6 +434,7 @@ class ListBook extends React.Component {
                                     type="text"
                                     className="form-control"
                                     name="name"
+                                    onChange={this.manejarChange}
                                     defaultValue={form.name}
                                     id="name1"
                                     required
@@ -449,6 +451,7 @@ class ListBook extends React.Component {
                                     className="form-control"
                                     name="author"
                                     id="author1"
+                                    onChange={this.manejarChange}
                                     defaultValue={form.author}
                                     required
                                   />
@@ -463,6 +466,7 @@ class ListBook extends React.Component {
                                     className="form-control"
                                     name="genre"
                                     required
+                                    onChange={this.manejarChange}
                                     defaultValue={form.genre}
                                   />
                                 </div>
@@ -477,6 +481,7 @@ class ListBook extends React.Component {
                                     type="number"
                                     className="form-control"
                                     name="copies"
+                                    onChange={this.manejarChange}
                                     defaultValue={form.copies}
                                     required
                                   />
@@ -491,6 +496,7 @@ class ListBook extends React.Component {
                                     className="form-control"
                                     name="date"
                                     required
+                                    onChange={this.manejarChange}
                                     defaultValue={form.date}
                                   />
                                 </div>
@@ -503,6 +509,7 @@ class ListBook extends React.Component {
                                     type="text"
                                     className="form-control"
                                     name="fine"
+                                    onChange={this.manejarChange}
                                     defaultValue={form.fine}
                                   />
                                 </div>
@@ -518,6 +525,7 @@ class ListBook extends React.Component {
                                     type="text"
                                     className="form-control"
                                     name="id"
+                                    onChange={this.manejarChange}
                                     defaultValue={form.id}
                                   />
                                 </div>

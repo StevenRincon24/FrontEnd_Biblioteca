@@ -114,6 +114,7 @@ class AddEmployee extends React.Component {
                 <li className="nav-item dropdown">
                   <Dropdown>
                     <Dropdown.Toggle
+                      as={Link}
                       variant="secondary"
                       id="dropdown-employees"
                       className="nav-link dropdown-toggle"
@@ -138,6 +139,7 @@ class AddEmployee extends React.Component {
                 <li className="nav-item dropdown">
                   <Dropdown>
                     <Dropdown.Toggle
+                      as={Link}
                       variant="secondary"
                       id="dropdown-books"
                       className="nav-link dropdown-toggle"

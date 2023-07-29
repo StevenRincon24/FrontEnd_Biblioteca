@@ -186,6 +186,7 @@ class ListEmployee extends React.Component {
                 <li className="nav-item dropdown">
                   <Dropdown>
                     <Dropdown.Toggle
+                      as={Link}
                       variant="secondary"
                       id="dropdown-basic"
                       className="nav-link dropdown-toggle"
@@ -237,7 +238,7 @@ class ListEmployee extends React.Component {
                   <div className="col-md-12">
                     <div className="card strpied-tabled-with-hover">
                       <div className="card-header ">
-                        <h4 className="card-title">Customers</h4>
+                        <h4 className="card-title">Loans</h4>
                       </div>
                       <div className="card-body table-full-width table-responsive">
                         <table className="table table-hover table-striped">

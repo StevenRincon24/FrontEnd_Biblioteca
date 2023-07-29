@@ -16,7 +16,7 @@ class ListEmployee extends React.Component {
       username: "",
       password: "",
       rol: "",
-      Name: "",
+      name: "",
       lastName: "",
       documentType: "",
       documentNumber: "",
@@ -33,7 +33,7 @@ class ListEmployee extends React.Component {
         username: employee.username,
         password: employee.password,
         rol: employee.rol,
-        name: employee.Name,
+        name: employee.name,
         lastName: employee.lastName,
         documentType: employee.documentType,
         documentNumber: employee.documentNumber,
@@ -381,8 +381,8 @@ class ListEmployee extends React.Component {
                                   <input
                                     type="text"
                                     className="form-control"
-                                    placeholder="Name"
-                                    name="Name"
+                                    name="name"
+                                    onChange={this.manejarChange}
                                     defaultValue={form.name}
                                     id="Name"
                                   />
@@ -395,6 +395,7 @@ class ListEmployee extends React.Component {
                                     type="text"
                                     className="form-control"
                                     name="lastName"
+                                    onChange={this.manejarChange}
                                     defaultValue={form.lastName}
                                     id="lastName"
                                     required
@@ -410,6 +411,7 @@ class ListEmployee extends React.Component {
                                     className="form-select form-control"
                                     id="documentType"
                                     name="documentType"
+                                    onChange={this.manejarChange}
                                     defaultValue={form.documentType}
                                   >
                                     <option value="Citizenship card">
@@ -431,6 +433,7 @@ class ListEmployee extends React.Component {
                                     className="form-control"
                                     name="documentNumber"
                                     required
+                                    onChange={this.manejarChange}
                                     defaultValue={form.documentNumber}
                                   />
                                 </div>
@@ -444,6 +447,7 @@ class ListEmployee extends React.Component {
                                     className="form-control"
                                     name="cellphone"
                                     required
+                                    onChange={this.manejarChange}
                                     defaultValue={form.cellphone}
                                   />
                                 </div>
@@ -458,6 +462,7 @@ class ListEmployee extends React.Component {
                                     type="text"
                                     className="form-control"
                                     name="address"
+                                    onChange={this.manejarChange}
                                     defaultValue={form.address}
                                     required
                                   />
@@ -473,6 +478,7 @@ class ListEmployee extends React.Component {
                                     name="username"
                                     required
                                     disabled
+                                    onChange={this.manejarChange}
                                     defaultValue={form.username}
                                   />
                                 </div>
@@ -489,6 +495,7 @@ class ListEmployee extends React.Component {
                                     type="text"
                                     className="form-control"
                                     name="id"
+                                    onChange={this.manejarChange}
                                     defaultValue={form.id}
                                   />
                                 </div>
@@ -503,6 +510,7 @@ class ListEmployee extends React.Component {
                                     type="date"
                                     className="form-control"
                                     name="birthday"
+                                    onChange={this.manejarChange}
                                     defaultValue={form.birthday}
                                   />
                                 </div>
@@ -512,7 +520,7 @@ class ListEmployee extends React.Component {
                               <button
                                 type="button"
                                 class="btn btn-secondary"
-                                data-dismiss="modal"
+                                onClick={this.closeModal}
                               >
                                 Close
                               </button>
