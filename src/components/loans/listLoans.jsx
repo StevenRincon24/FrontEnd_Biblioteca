@@ -40,7 +40,6 @@ class ListEmployee extends React.Component {
         return [...acc, ...loans];
       }, []);
 
-
       this.setState({ data: allLoans });
     });
   };
@@ -59,13 +58,13 @@ class ListEmployee extends React.Component {
       ApiUrl + "dashBoard/loansManagement/changeStatus/" + username + "/" + id;
     fetch(url, {
       method: "PATCH",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
     })
       .then((response) => response.json())
       .then((data) => {
-
         if (data.message === "Loan status updated successfully") {
           this.setState({
             error: true,

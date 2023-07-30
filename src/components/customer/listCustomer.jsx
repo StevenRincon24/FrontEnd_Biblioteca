@@ -123,6 +123,7 @@ class ListEmployee extends React.Component {
     let url = ApiUrl + "dashboard/customersManagement/edit";
     fetch(url, {
       method: "PATCH",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
@@ -130,8 +131,6 @@ class ListEmployee extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-
-
         if (data.message === "Customer updated succesfully") {
           this.setState({
             error: true,

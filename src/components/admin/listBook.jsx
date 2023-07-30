@@ -97,8 +97,10 @@ class ListBook extends React.Component {
     let url = ApiUrl + "dashBoard/bookManagement/edit";
     fetch(url, {
       method: "PATCH",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
+        
       },
       body: JSON.stringify(requestData),
     })
