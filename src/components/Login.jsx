@@ -76,7 +76,7 @@ class Login extends React.Component {
               />
             </div>
             <div className="col-md-6 bg-white p-5">
-              <h3 className="pb-3">Login</h3>
+              <h3 className="pb-3">Login Test</h3>
               <div className="form-style">
                 <form onSubmit={this.manejarSubmit}>
                   <div className="form-group pb-3">
