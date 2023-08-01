@@ -360,8 +360,8 @@ class ListEmployee extends React.Component {
                                     name="lastName"
                                     defaultValue={form.lastName}
                                     id="lastName"
-                                    
                                     onChange={this.manejarChange}
+                                    required
                                   />
                                 </div>
                               </div>
