@@ -530,6 +530,7 @@ class ListBook extends React.Component {
                                 type="button"
                                 class="btn btn-secondary"
                                 data-dismiss="modal"
+                                onClick={this.closeModal}
                               >
                                 Close
                               </button>

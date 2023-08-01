@@ -51,6 +51,7 @@ class ListEmployee extends React.Component {
   };
 
   openModal = (employee) => {
+    console.log(employee.birthday);
     this.setState({
       isModalOpen: true,
       selectedemployee: employee,
@@ -163,7 +164,7 @@ class ListEmployee extends React.Component {
     const day = date.getDate().toString().padStart(2, "0");
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
     const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
+    return `${year}/${month}/${day}`;
   };
 
   render() {
@@ -277,6 +278,7 @@ class ListEmployee extends React.Component {
                               <th>Cellphone</th>
                               <th>Address</th>
                               <th>Actions</th>
+                              <th>Cumpleaños</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -289,6 +291,7 @@ class ListEmployee extends React.Component {
                                 <td>{employee.documentNumber}</td>
                                 <td>{employee.cellphone}</td>
                                 <td>{employee.address}</td>
+                                <td>{this.formatDate(employee.birthday)}</td>
 
                                 <td>
                                   <button
@@ -340,8 +343,8 @@ class ListEmployee extends React.Component {
                                   <input
                                     type="text"
                                     className="form-control"
-                                    placeholder="Name"
-                                    name="Name"
+                                    placeholder="name"
+                                    name="name"
                                     defaultValue={form.name}
                                     id="Name"
                                     onChange={this.manejarChange}
@@ -357,7 +360,7 @@ class ListEmployee extends React.Component {
                                     name="lastName"
                                     defaultValue={form.lastName}
                                     id="lastName"
-                                    required
+                                    
                                     onChange={this.manejarChange}
                                   />
                                 </div>
@@ -469,8 +472,11 @@ class ListEmployee extends React.Component {
                                     type="date"
                                     className="form-control"
                                     name="birthday"
+                                    required
                                     onChange={this.manejarChange}
-                                    defaultValue={form.birthday}
+                                    defaultValue={this.formatDate(
+                                      form.birthday
+                                    )}
                                   />
                                 </div>
                               </div>
@@ -480,6 +486,7 @@ class ListEmployee extends React.Component {
                                 type="button"
                                 class="btn btn-secondary"
                                 data-dismiss="modal"
+                                onClick={this.closeModal}
                               >
                                 Close
                               </button>
