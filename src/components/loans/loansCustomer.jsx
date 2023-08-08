@@ -154,6 +154,7 @@ class LoansCustomer extends React.Component {
                               <th>Start Date</th>
                               <th>End Date</th>
                               <th>State</th>
+                              <th>Debt</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -163,6 +164,13 @@ class LoansCustomer extends React.Component {
                                 <td>{this.formatDate(loans.startDate)}</td>
                                 <td>{this.formatDate(loans.endDate)}</td>
                                 <td>{loans.state ? "Active" : "Inactive"}</td>
+                                <td>
+                                  {this.formatDate(loan.startDate) -
+                                    this.formatDate(loan.endDate) >
+                                  8
+                                    ? "Mayor a 8 días"
+                                    : "No mayor a 8 días"}
+                                </td>
                               </tr>
                             ))}
                           </tbody>
