@@ -144,7 +144,7 @@ class LoansCustomer extends React.Component {
                   <div className="col-md-12">
                     <div className="card strpied-tabled-with-hover">
                       <div className="card-header ">
-                        <h4 className="card-title">List Loans</h4>
+                        <h4 className="card-title">List Loans Customer</h4>
                       </div>
                       <div className="card-body table-full-width table-responsive">
                         <table className="table table-hover table-striped">
@@ -165,11 +165,11 @@ class LoansCustomer extends React.Component {
                                 <td>{this.formatDate(loans.endDate)}</td>
                                 <td>{loans.state ? "Active" : "Inactive"}</td>
                                 <td>
-                                  {this.formatDate(loan.startDate) -
-                                    this.formatDate(loan.endDate) >
+                                  {this.formatDate(loans.startDate) -
+                                    this.formatDate(loans.endDate) >
                                   8
-                                    ? "Mayor a 8 días"
-                                    : "No mayor a 8 días"}
+                                    ? "Con deuda"
+                                    : "Sin deuda"}
                                 </td>
                               </tr>
                             ))}
